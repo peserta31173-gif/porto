@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Seminar PPG - Laskar Rindang Gulo | UNY</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        uny: {
+                            blue: '#4a2c11',
+                            gold: '#d97706',
+                            dark: '#120c08',
+                            accent: '#f59e0b'
+                        },
+                        lurik: {
+                            dark: '#140d09',
+                            card: '#1c130d',
+                            border: '#3d281a',
+                            gold: '#f59e0b',
+                            amber: '#d97706',
+                            bronze: '#b45309',
+                            cream: '#fef3c7'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #120c08;
+            color: #fef3c7;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Continuous Rotating Conic Gradient for Warm Bronze/Gold Neon Ring */
+        @keyframes rotateNeon {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 25px rgba(217, 119, 6, 0.5), 0 0 50px rgba(180, 83, 9, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 45px rgba(245, 158, 11, 0.7), 0 0 70px rgba(146, 64, 14, 0.5);
+            }
+        }
+
+        /* Portrait Card Frame to display full body photo */
+        .neon-avatar-container {
+            position: relative;
+            width: 290px;
+            height: 420px;
+            border-radius: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulseGlow 4s infinite ease-in-out;
+        }
+
+        @media (min-width: 768px) {
+            .neon-avatar-container {
+                width: 340px;
+                height: 480px;
+            }
+        }
+
+        /* Animated Glowing Border Overlay - Brown & Gold Conic Gradient */
+        .neon-avatar-container::before {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border-radius: 2.2rem;
+            background: conic-gradient(
+                from 0deg,
+                #f59e0b,
+                #d97706,
+                #b45309,
+                #78350f,
+                #f59e0b
+            );
+            animation: rotateNeon 3.5s linear infinite;
+            z-index: 1;
+            filter: blur(5px);
+        }
+
+        /* Secondary Sharp Border Edge */
+        .neon-avatar-container::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 2.1rem;
+            background: conic-gradient(
+                from 0deg,
+                #f59e0b,
+                #d97706,
+                #b45309,
+                #f59e0b
+            );
+            animation: rotateNeon 3.5s linear infinite;
+            z-index: 2;
+        }
+
+        .neon-avatar-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 1.8rem;
+            overflow: hidden;
+            z-index: 3;
+            background: #1c130d;
+            border: 3px solid #2a1b12;
+        }
+
+        /* Full Body Photo Display Styling */
+        .neon-avatar-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center center;
+            background-color: #1a100a;
+            transition: transform 0.5s ease;
+        }
+
+        .neon-avatar-container:hover .neon-avatar-img {
+            transform: scale(1.03);
+        }
+
+        /* Custom Scrollbar - Warm Brown */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #140d09;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3d281a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d97706;
+        }
+
+        /* Glassmorphism Card Style - Brown Theme */
+        .glass-card {
+            background: rgba(28, 19, 13, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(217, 119, 6, 0.18);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(245, 158, 11, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(217, 119, 6, 0.2);
+        }
+
+        /* Tab active state transition */
+        .tab-btn.active {
+            background-color: #b45309;
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(180, 83, 9, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-stone-950 text-amber-50 antialiased selection:bg-amber-600 selection:text-white">
+
+    <!-- NAVBAR -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-[#120c08]/90 backdrop-blur-md border-b border-amber-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo / Identity -->
+            <a href="#beranda" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-700 via-amber-500 to-yellow-400 p-0.5 flex items-center justify-center shadow-lg shadow-amber-600/20 group-hover:scale-105 transition-transform">
+                    <div class="w-full h-full bg-[#120c08] rounded-[10px] flex items-center justify-center">
+                        <i class="fa-solid fa-graduation-cap text-amber-400 text-lg"></i>
+                    </div>
+                </div>
+                <div>
+                    <span class="block text-base font-bold text-amber-100 tracking-wide group-hover:text-amber-400 transition-colors">Laskar Rindang Gulo</span>
+                    <span class="block text-xs text-amber-200/60 font-medium">PPG Universitas Negeri Yogyakarta</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu Navigation -->
+            <nav class="hidden lg:flex items-center space-x-1">
+                <a href="#beranda" class="px-3 py-2 rounded-lg text-sm font-medium text-amber-100/80 hover:text-white hover:bg-amber-900/40 transition-all">Beranda</a>
+                <a href="#refleksi-sem1" class="px-3 py-2 rounded-lg text-sm font-medium text-amber-100/80 hover:text-white hover:bg-amber-900/40 transition-all">Refleksi Sem 1</a>
+                <a href="#refleksi-sem2" class="px-3 py-2 rounded-lg text-sm font-medium text-amber-100/80 hover:text-white hover:bg-amber-900/40 transition-all">Refleksi Sem 2</a>
+                <a href="#refleksi-ppg" class="px-3 py-2 rounded-lg text-sm font-medium text-amber-100/80 hover:text-white hover:bg-amber-900/40 transition-all">Refleksi PPG</a>
+                <a href="#hasil-karya" class="px-3 py-2 rounded-lg text-sm font-medium text-amber-100/80 hover:text-white hover:bg-amber-900/40 transition-all">Hasil Karya</a>
+                <a href="#kesimpulan" class="px-3 py-2 rounded-lg text-sm font-medium text-amber-100/80 hover:text-white hover:bg-amber-900/40 transition-all">Kesimpulan</a>
+            </nav>
+
+            <!-- Action Button -->
+            <div class="hidden lg:flex items-center space-x-3">
+                <a href="#refleksi-sem1" class="px-4 py-2 rounded-xl text-xs font-semibold bg-gradient-to-r from-amber-600 via-amber-700 to-yellow-600 text-white shadow-md shadow-amber-600/30 hover:shadow-amber-600/50 hover:scale-105 transition-all flex items-center space-x-2">
+                    <i class="fa-solid fa-folder-open"></i>
+                    <span>Lihat Artefak</span>
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg text-amber-200 hover:text-white hover:bg-amber-900/50 focus:outline-none" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Nav -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-[#18100b] border-b border-amber-900/40 px-4 pt-2 pb-6 space-y-2">
+            <a href="#beranda" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-amber-200 hover:bg-amber-900/40">Beranda</a>
+            <a href="#refleksi-sem1" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-amber-200 hover:bg-amber-900/40">Refleksi Semester 1</a>
+            <a href="#refleksi-sem2" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-amber-200 hover:bg-amber-900/40">Refleksi Semester 2</a>
+            <a href="#refleksi-ppg" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-amber-200 hover:bg-amber-900/40">Refleksi PPG</a>
+            <a href="#hasil-karya" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-amber-200 hover:bg-amber-900/40">Hasil Karya</a>
+            <a href="#kesimpulan" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-amber-200 hover:bg-amber-900/40">Kesimpulan</a>
+        </div>
+    </header>
+
+    <!-- SECTION 1: BERANDA -->
+    <section id="beranda" class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden min-h-screen flex items-center bg-[#120c08]">
+        <!-- Glowing Background Orbs in Warm Bronze / Gold -->
+        <div class="absolute top-1/4 left-10 w-96 h-96 bg-amber-700/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-yellow-600/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Left Hero Text & Info -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1e140d] border border-amber-600/30 text-amber-400 text-xs font-semibold tracking-wide shadow-inner">
+                        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                        <span>PORTOFOLIO DIGITAL SEMINAR PPG</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+                        Halo, Saya <br class="hidden sm:inline">
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500">
+                            Laskar Rindang Gulo
+                        </span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-amber-100/90 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Mahasiswa Program Pendidikan Profesi Guru (PPG) di <strong class="text-amber-400 font-semibold">Universitas Negeri Yogyakarta (UNY)</strong>. Portofolio ini menyajikan refleksi kritis, artefak pembelajaran inovatif, serta bukti transformasi kompetensi pedagogik & profesional selama masa studi.
+                    </p>
+
+                    <!-- Credentials Badges -->
+                    <div class="pt-2 flex flex-wrap justify-center lg:justify-start gap-3 text-xs font-medium">
+                        <div class="px-3.5 py-2 rounded-xl glass-card text-amber-100 flex items-center space-x-2">
+                            <i class="fa-solid fa-university text-amber-400"></i>
+                            <span>Universitas Negeri Yogyakarta</span>
+                        </div>
+                        <div class="px-3.5 py-2 rounded-xl glass-card text-amber-100 flex items-center space-x-2">
+                            <i class="fa-solid fa-certificate text-yellow-400"></i>
+                            <span>Calon Guru Profesional</span>
+                        </div>
+                        <div class="px-3.5 py-2 rounded-xl glass-card text-amber-100 flex items-center space-x-2">
+                            <i class="fa-solid fa-book-open-reader text-amber-300"></i>
+                            <span>Kurikulum Merdeka</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="pt-4 flex flex-col sm:flex-row justify-center lg:justify-start items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                        <a href="#refleksi-sem1" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-600 via-amber-700 to-yellow-600 text-white font-semibold text-sm shadow-xl shadow-amber-700/25 hover:shadow-amber-600/40 hover:-translate-y-0.5 transition-all text-center">
+                            Jelajahi Refleksi & Artefak <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="#refleksi-ppg" class="w-full sm:w-auto px-6 py-3.5 rounded-xl glass-card text-amber-100 hover:text-white font-semibold text-sm border border-amber-800/50 hover:bg-amber-900/50 transition-all text-center">
+                            Refleksi Keseluruhan PPG
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Hero: FULL BODY PHOTO WITH MOVING NEON LIGHT EFFECT -->
+                <div class="lg:col-span-5 flex justify-center items-center">
+                    <div class="relative">
+                        <!-- Neon Light Photo Frame Wrapper -->
+                        <div class="neon-avatar-container">
+                            <div class="neon-avatar-inner">
+                                <img src="https://lh3.googleusercontent.com/d/1jbAknMXWhTBEBdZkE7sywO4_7zXoTDgN" 
+                                     alt="Laskar Rindang Gulo - Mahasiswa PPG UNY" 
+                                     class="neon-avatar-img"
+                                     onerror="this.onerror=null; this.src='https://placehold.co/400x550/3d281a/FEF3C7?text=Laskar+Rindang+Gulo';">
+                            </div>
+                        </div>
+
+                        <!-- Badge Overlay -->
+                        <div class="absolute -bottom-4 right-0 sm:-right-2 bg-[#1a110a]/95 backdrop-blur-md border border-amber-700/50 text-white px-4 py-2.5 rounded-2xl shadow-xl flex items-center space-x-3 z-20">
+                            <div class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-xs">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold text-amber-100">PPG Prajabatan / Dalam Jabatan</p>
+                                <p class="text-[10px] text-amber-300/70">UNY Campus Portfolio</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Quick Metrics / Stats Bar -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                <div class="glass-card p-5 rounded-2xl text-center">
+                    <p class="text-2xl sm:text-3xl font-bold text-amber-400">Semester 1 & 2</p>
+                    <p class="text-xs text-amber-200/70 mt-1">Refleksi Kritis Lengkap</p>
+                </div>
+                <div class="glass-card p-5 rounded-2xl text-center">
+                    <p class="text-2xl sm:text-3xl font-bold text-yellow-500">PPL I & II</p>
+                    <p class="text-xs text-amber-200/70 mt-1">Praktik Lapangan Terintegrasi</p>
+                </div>
+                <div class="glass-card p-5 rounded-2xl text-center">
+                    <p class="text-2xl sm:text-3xl font-bold text-amber-300">Artefak MK</p>
+                    <p class="text-xs text-amber-200/70 mt-1">Dokumen & Media Pembelajaran</p>
+                </div>
+                <div class="glass-card p-5 rounded-2xl text-center">
+                    <p class="text-2xl sm:text-3xl font-bold text-amber-500">UNY 2026</p>
+                    <p class="text-xs text-amber-200/70 mt-1">Seminar Portofolio</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: REFLEKSI SEMESTER 1 -->
+    <section id="refleksi-sem1" class="py-20 relative bg-[#18100b] border-t border-amber-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/20">
+                    Modul Perkuliahan
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4">
+                    Refleksi Semester 1
+                </h2>
+                <p class="text-amber-200/70 text-sm sm:text-base mt-3">
+                    Pengalaman belajar, jurnal refleksi kognitif, serta artefak perkuliahan yang telah disusun selama perkuliahan Semester 1.
+                </p>
+            </div>
+
+            <!-- Grid Modules Semester 1 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- 1. FILOSOFI PENDIDIKAN DAN NILAI -->
+                <div class="glass-card rounded-3xl p-6 sm:p-8 border border-amber-900/30 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-lg">
+                                01
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Filosofi Pendidikan dan Nilai</h3>
+                        </div>
+                        <p class="text-xs text-amber-200/70 mb-6 leading-relaxed">
+                            Refleksi kritis mengenai landasan pemikiran Ki Hajar Dewantara, sistem Among, kodrat alam & kodrat zaman, serta pembentukan nilai-nilai luhur dan karakter pendidik.
+                        </p>
+
+                        <div class="space-y-3">
+                            <!-- Refleksi -->
+                            <div class="p-3.5 rounded-xl bg-[#140d09] border border-amber-900/40 flex items-center justify-between hover:border-amber-500/40 transition-all">
+                                <div class="flex items-center space-x-3 overflow-hidden">
+                                    <i class="fa-solid fa-file-pdf text-amber-400 text-lg"></i>
+                                    <div class="truncate">
+                                        <p class="text-xs font-semibold text-amber-100 truncate">Refleksi Filosofi Pendidikan & Nilai</p>
+                                        <p class="text-[10px] text-amber-300/60">Dokumen Refleksi Kritis</p>
+                                    </div>
+                                </div>
+                                <button onclick="openPdfModal('Refleksi Filosofi Pendidikan dan Nilai', 'https://drive.google.com/file/d/17pX2ILu0VLj_5KkK13rT7xO266rhmfdD/preview', 'https://drive.google.com/file/d/17pX2ILu0VLj_5KkK13rT7xO266rhmfdD/view?usp=sharing')" 
+                                        class="px-3 py-1.5 rounded-lg bg-amber-700/80 hover:bg-amber-600 text-white text-xs font-medium transition-all shrink-0">
+                                    Buka Refleksi
+                                </button>
+                            </div>
+
+                            <!-- Artefak (Presentation) -->
+                            <div class="p-3.5 rounded-xl bg-[#140d09] border border-amber-900/40 flex items-center justify-between hover:border-yellow-500/40 transition-all">
+                                <div class="flex items-center space-x-3 overflow-hidden">
+                                    <i class="fa-solid fa-file-powerpoint text-yellow-400 text-lg"></i>
+                                    <div class="truncate">
+                                        <p class="text-xs font-semibold text-amber-100 truncate">Artefak Filosofi Pendidikan</p>
+                                        <p class="text-[10px] text-amber-300/60">Presentasi / Slide Interaktif</p>
+                                    </div>
+                                </div>
+                                <button onclick="openPdfModal('Artefak Filosofi Pendidikan dan Nilai', 'https://docs.google.com/presentation/d/17MklEPzoLYDZklxe1v4v25Md0-1suyU8/preview', 'https://docs.google.com/presentation/d/17MklEPzoLYDZklxe1v4v25Md0-1suyU8/edit?usp=sharing')" 
+                                        class="px-3 py-1.5 rounded-lg bg-yellow-700/80 hover:bg-yellow-600 text-white text-xs font-medium transition-all shrink-0">
+                                    Buka Artefak
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-amber-900/40 flex items-center justify-between text-xs text-amber-200/60">
+                        <span><i class="fa-solid fa-shield-halved text-amber-400 mr-1"></i> Modul Utama PPG</span>
+                        <a href="https://drive.google.com/file/d/17pX2ILu0VLj_5KkK13rT7xO266rhmfdD/view?usp=sharing" target="_blank" class="text-amber-400 hover:underline">
+                            Buka di Drive <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2. GROWTH MINDSET -->
+                <div class="glass-card rounded-3xl p-6 sm:p-8 border border-amber-900/30 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-lg">
+                                02
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Growth Mindset Pendidik</h3>
+                        </div>
+                        <p class="text-xs text-amber-200/70 mb-6 leading-relaxed">
+                            Pengembangan pola pikir berkembang (Growth Mindset) untuk membangun daya tahan profesional, keterbukaan terhadap umpan balik, dan ketahanan belajar berkelanjutan.
+                        </p>
+
+                        <div class="space-y-3">
+                            <!-- Refleksi -->
+                            <div class="p-3.5 rounded-xl bg-[#140d09] border border-amber-900/40 flex items-center justify-between hover:border-amber-500/40 transition-all">
+                                <div class="flex items-center space-x-3 overflow-hidden">
+                                    <i class="fa-solid fa-brain text-amber-400 text-lg"></i>
+                                    <div class="truncate">
+                                        <p class="text-xs font-semibold text-amber-100 truncate">Refleksi Growth Mindset</p>
+                                        <p class="text-[10px] text-amber-300/60">Analisis Pengembangan Pola Pikir</p>
+                                    </div>
+                                </div>
+                                <button onclick="openPdfModal('Refleksi Growth Mindset', 'https://drive.google.com/file/d/1MCD4r9m8d9rwkib-G2vr4IdsyrJbfj4q/preview', 'https://drive.google.com/file/d/1MCD4r9m8d9rwkib-G2vr4IdsyrJbfj4q/view?usp=sharing')" 
+                                        class="px-3 py-1.5 rounded-lg bg-amber-700/80 hover:bg-amber-600 text-white text-xs font-medium transition-all shrink-0">
+                                    Buka Refleksi
+                                </button>
+                            </div>
+
+                            <!-- Artefak -->
+                            <div class="p-3.5 rounded-xl bg-[#140d09] border border-amber-900/40 flex items-center justify-between hover:border-yellow-500/40 transition-all">
+                                <div class="flex items-center space-x-3 overflow-hidden">
+                                    <i class="fa-solid fa-box-archive text-yellow-400 text-lg"></i>
+                                    <div class="truncate">
+                                        <p class="text-xs font-semibold text-amber-100 truncate">Artefak Growth Mindset</p>
+                                        <p class="text-[10px] text-amber-300/60">Dokumen Hasil Belajar & Aksi Nyata</p>
+                                    </div>
+                                </div>
+                                <button onclick="openPdfModal('Artefak Growth Mindset', 'https://drive.google.com/file/d/1O5lp5FQABjU4GrfKIkAtX01L_ZZGD82V/preview', 'https://drive.google.com/file/d/1O5lp5FQABjU4GrfKIkAtX01L_ZZGD82V/view?usp=sharing')" 
+                                        class="px-3 py-1.5 rounded-lg bg-yellow-700/80 hover:bg-yellow-600 text-white text-xs font-medium transition-all shrink-0">
+                                    Buka Artefak
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-amber-900/40 flex items-center justify-between text-xs text-amber-200/60">
+                        <span><i class="fa-solid fa-shield-halved text-amber-400 mr-1"></i> Modul Utama PPG</span>
+                        <a href="https://drive.google.com/file/d/1MCD4r9m8d9rwkib-G2vr4IdsyrJbfj4q/view?usp=sharing" target="_blank" class="text-amber-400 hover:underline">
+                            Buka di Drive <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 3. PEMBELAJARAN MENDALAM DAN ASESMEN (PMA) -->
+                <div class="glass-card rounded-3xl p-6 sm:p-8 border border-amber-900/30 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-lg">
+                                03
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Pembelajaran Mendalam dan Asesmen (PMA)</h3>
+                        </div>
+                        <p class="text-xs text-amber-200/70 mb-6 leading-relaxed">
+                            Refleksi penerapan strategi pembelajaran mendalam (*deep learning*) untuk mendorong pemahaman bermakna dan keterampilan berpikir tingkat tinggi (HOTS), terintegrasi dengan perancangan asesmen diagnostik, formatif, dan sumatif otentik.
+                        </p>
+
+                        <div class="space-y-3">
+                            <!-- Refleksi PMA -->
+                            <div class="p-3.5 rounded-xl bg-[#140d09] border border-amber-900/40 flex items-center justify-between hover:border-amber-500/40 transition-all">
+                                <div class="flex items-center space-x-3 overflow-hidden">
+                                    <i class="fa-solid fa-file-lines text-amber-400 text-lg"></i>
+                                    <div class="truncate">
+                                        <p class="text-xs font-semibold text-amber-100 truncate">Refleksi PMA</p>
+                                        <p class="text-[10px] text-amber-300/60">Jurnal Refleksi Kritis Modul PMA</p>
+                                    </div>
+                                </div>
+                                <button onclick="openPdfModal('Refleksi PMA - Pembelajaran Mendalam dan Asesmen', 'https://drive.google.com/file/d/1Hr7couyGZ9msjseM35ZcudDeVvW5qamZ/preview', 'https://drive.google.com/file/d/1Hr7couyGZ9msjseM35ZcudDeVvW5qamZ/view?usp=sharing')" 
+                                        class="px-3 py-1.5 rounded-lg bg-amber-700/80 hover:bg-amber-600 text-white text-xs font-medium transition-all shrink-0">
+                                    Buka Refleksi
+                                </button>
+                            </div>
+
+                            <!-- Artefak PMA -->
+                            <div class="p-3.5 rounded-xl bg-[#140d09] border border-amber-900/40 flex items-center justify-between hover:border-yellow-500/40 transition-all">
+                                <div class="flex items-center space-x-3 overflow-hidden">
+                                    <i class="fa-solid fa-folder-closed text-yellow-400 text-lg"></i>
+                                    <div class="truncate">
+                                        <p class="text-xs font-semibold text-amber-100 truncate">Artefak PMA</p>
+                                        <p class="text-[10px] text-amber-300/60">Modul Ajar & Asesmen Diagnostic</p>
+                                    </div>
+                                </div>
+                                <button onclick="openPdfModal('Artefak PMA - Pembelajaran Mendalam dan Asesmen', 'https://drive.google.com/file/d/1c_HIXDSKlTvl_BlukTzH5ZDdGVuh5S7U/preview', 'https://drive.google.com/file/d/1c_HIXDSKlTvl_BlukTzH5ZDdGVuh5S7U/view?usp=sharing')" 
+                                        class="px-3 py-1.5 rounded-lg bg-yellow-700/80 hover:bg-yellow-600 text-white text-xs font-medium transition-all shrink-0">
+                                    Buka Artefak
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-amber-900/40 flex items-center justify-between text-xs text-amber-200/60">
+                        <span><i class="fa-solid fa-shield-halved text-amber-400 mr-1"></i> Modul Utama PPG</span>
+                        <a href="https://drive.google.com/file/d/1Hr7couyGZ9msjseM35ZcudDeVvW5qamZ/view?usp=sharing" target="_blank" class="text-amber-400 hover:underline">
+                            Buka di Drive <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 4. PEMAHAMAN PESERTA DIDIK DAN PEMBELAJARAN -->
+                <div class="glass-card rounded-3xl p-6 sm:p-8 border border-amber-900/30 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-lg">
+                                04
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Pemahaman Peserta Didik & Pembelajaran</h3>
+                        </div>
+                        <p class="text-xs text-amber-200/70 mb-6 leading-relaxed">
+                            Refleksi mendalam mengenai teori perkembangan anak, profil belajar siswa, motivasi, serta pemetaan Zone of Proximal Development (ZPD).
+                        </p>
+
+                        <div class="space-y-3">
+                            <!-- Refleksi -->
+                            <div class="p-3.5 rounded-xl bg-[#140d09] border border-amber-900/40 flex items-center justify-between hover:border-amber-500/40 transition-all">
+                                <div class="flex items-center space-x-3 overflow-hidden">
+                                    <i class="fa-solid fa-user-graduate text-amber-400 text-lg"></i>
+                                    <div class="truncate">
+                                        <p class="text-xs font-semibold text-amber-100 truncate">Refleksi Pemahaman Peserta Didik</p>
+                                        <p class="text-[10px] text-amber-300/60">Analisis Karakteristik & Teori Belajar</p>
+                                    </div>
+                                </div>
+                                <button onclick="openPdfModal('Refleksi Pemahaman Peserta Didik dan Pembelajaran', 'https://drive.google.com/file/d/1vyiSgRauiEuCBtZcs5vEgbFq56GRJMhR/preview', 'https://drive.google.com/file/d/1vyiSgRauiEuCBtZcs5vEgbFq56GRJMhR/view?usp=sharing')" 
+                                        class="px-3 py-1.5 rounded-lg bg-amber-700/80 hover:bg-amber-600 text-white text-xs font-medium transition-all shrink-0">
+                                    Buka Refleksi
+                                </button>
+                            </div>
+
+                            <!-- Artefak -->
+                            <div class="p-3.5 rounded-xl bg-[#140d09] border border-amber-900/40 flex items-center justify-between hover:border-yellow-500/40 transition-all">
+                                <div class="flex items-center space-x-3 overflow-hidden">
+                                    <i class="fa-solid fa-box-open text-yellow-400 text-lg"></i>
+                                    <div class="truncate">
+                                        <p class="text-xs font-semibold text-amber-100 truncate">Artefak Pemahaman Peserta Didik</p>
+                                        <p class="text-[10px] text-amber-300/60">Hasil Pemetaan Profil Belajar Siswa</p>
+                                    </div>
+                                </div>
+                                <button onclick="openPdfModal('Artefak Pemahaman Peserta Didik dan Pembelajaran', 'https://drive.google.com/file/d/1xniLYxnR7fs93NfD1mJfvztsscbBLlZg/preview', 'https://drive.google.com/file/d/1xniLYxnR7fs93NfD1mJfvztsscbBLlZg/view?usp=sharing')" 
+                                        class="px-3 py-1.5 rounded-lg bg-yellow-700/80 hover:bg-yellow-600 text-white text-xs font-medium transition-all shrink-0">
+                                    Buka Artefak
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-amber-900/40 flex items-center justify-between text-xs text-amber-200/60">
+                        <span><i class="fa-solid fa-shield-halved text-amber-400 mr-1"></i> Modul Utama PPG</span>
+                        <a href="https://drive.google.com/file/d/1vyiSgRauiEuCBtZcs5vEgbFq56GRJMhR/view?usp=sharing" target="_blank" class="text-amber-400 hover:underline">
+                            Buka di Drive <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 5. PEMBELAJARAN KREATIF DAN INOVATIF -->
+                <div class="glass-card rounded-3xl p-6 sm:p-8 border border-amber-900/30 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-lg">
+                                05
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Pembelajaran Kreatif dan Inovatif</h3>
+                        </div>
+                        <p class="text-xs text-amber-200/70 mb-6 leading-relaxed">
+                            Refleksi eksplorasi metode mengajar modern, integrasi media interaktif, pendekatan PBL/PjBL, serta perancangan skenario belajar yang memicu berpikir kritis.
+                        </p>
+
+                        <div class="space-y-3">
+                            <!-- Refleksi -->
+                            <div class="p-3.5 rounded-xl bg-[#140d09] border border-amber-900/40 flex items-center justify-between hover:border-amber-500/40 transition-all">
+                                <div class="flex items-center space-x-3 overflow-hidden">
+                                    <i class="fa-solid fa-lightbulb text-amber-400 text-lg"></i>
+                                    <div class="truncate">
+                                        <p class="text-xs font-semibold text-amber-100 truncate">Refleksi Pembelajaran Kreatif & Inovatif</p>
+                                        <p class="text-[10px] text-amber-300/60">Jurnal Refleksi Pembelajaran Inovatif</p>
+                                    </div>
+                                </div>
+                                <button onclick="openPdfModal('Refleksi Pembelajaran Kreatif dan Inovatif', 'https://drive.google.com/file/d/1aLPQwnLDvBlgE3SzV6oxONkmwuDAnzjg/preview', 'https://drive.google.com/file/d/1aLPQwnLDvBlgE3SzV6oxONkmwuDAnzjg/view?usp=sharing')" 
+                                        class="px-3 py-1.5 rounded-lg bg-amber-700/80 hover:bg-amber-600 text-white text-xs font-medium transition-all shrink-0">
+                                    Buka Refleksi
+                                </button>
+                            </div>
+
+                            <!-- Artefak (Google Docs) -->
+                            <div class="p-3.5 rounded-xl bg-[#140d09] border border-amber-900/40 flex items-center justify-between hover:border-yellow-500/40 transition-all">
+                                <div class="flex items-center space-x-3 overflow-hidden">
+                                    <i class="fa-solid fa-file-word text-yellow-400 text-lg"></i>
+                                    <div class="truncate">
+                                        <p class="text-xs font-semibold text-amber-100 truncate">Artefak Pembelajaran Kreatif & Inovatif</p>
+                                        <p class="text-[10px] text-amber-300/60">Dokumen Desain & Media Pembelajaran</p>
+                                    </div>
+                                </div>
+                                <button onclick="openPdfModal('Artefak Pembelajaran Kreatif dan Inovatif', 'https://docs.google.com/document/d/1nyjazAJuF--0-3CtGWD6luucmXbqpSLJ/preview', 'https://docs.google.com/document/d/1nyjazAJuF--0-3CtGWD6luucmXbqpSLJ/edit?usp=sharing')" 
+                                        class="px-3 py-1.5 rounded-lg bg-yellow-700/80 hover:bg-yellow-600 text-white text-xs font-medium transition-all shrink-0">
+                                    Buka Artefak
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-amber-900/40 flex items-center justify-between text-xs text-amber-200/60">
+                        <span><i class="fa-solid fa-shield-halved text-amber-400 mr-1"></i> Modul Utama PPG</span>
+                        <a href="https://drive.google.com/file/d/1aLPQwnLDvBlgE3SzV6oxONkmwuDAnzjg/view?usp=sharing" target="_blank" class="text-amber-400 hover:underline">
+                            Buka di Drive <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 6. PRAKTIK PENGALAMAN LAPANGAN I (PPL 1) -->
+                <div class="glass-card rounded-3xl p-6 sm:p-8 border border-amber-900/30 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-lg">
+                                06
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Praktik Pengalaman Lapangan I (PPL 1)</h3>
+                        </div>
+                        <p class="text-xs text-amber-200/70 mb-6 leading-relaxed">
+                            Laporan evaluasi, refleksi pelaksanaan mengajar terbimbing, observasi lingkungan belajar sekolah mitra, serta berkas artefak PPL 1.
+                        </p>
+
+                        <div class="space-y-3">
+                            <!-- Refleksi PPL 1 -->
+                            <div class="p-3.5 rounded-xl bg-[#140d09] border border-amber-900/40 flex items-center justify-between hover:border-amber-500/40 transition-all">
+                                <div class="flex items-center space-x-3 overflow-hidden">
+                                    <i class="fa-solid fa-chalkboard-user text-amber-400 text-lg"></i>
+                                    <div class="truncate">
+                                        <p class="text-xs font-semibold text-amber-100 truncate">Refleksi PPL 1</p>
+                                        <p class="text-[10px] text-amber-300/60">Laporan & Refleksi Mengajar Terbimbing</p>
+                                    </div>
+                                </div>
+                                <button onclick="openPdfModal('Refleksi PPL 1', 'https://drive.google.com/file/d/1yr2Cxpxw6to3-WCY_ZU1dcRLH0P5zNk-/preview', 'https://drive.google.com/file/d/1yr2Cxpxw6to3-WCY_ZU1dcRLH0P5zNk-/view?usp=sharing')" 
+                                        class="px-3 py-1.5 rounded-lg bg-amber-700/80 hover:bg-amber-600 text-white text-xs font-medium transition-all shrink-0">
+                                    Buka Refleksi
+                                </button>
+                            </div>
+
+                            <!-- Artefak PPL 1 -->
+                            <div class="p-3.5 rounded-xl bg-[#140d09] border border-amber-900/40 flex items-center justify-between hover:border-yellow-500/40 transition-all">
+                                <div class="flex items-center space-x-3 overflow-hidden">
+                                    <i class="fa-solid fa-folder-open text-yellow-400 text-lg"></i>
+                                    <div class="truncate">
+                                        <p class="text-xs font-semibold text-amber-100 truncate">Artefak PPL 1</p>
+                                        <p class="text-[10px] text-amber-300/60">Dokumen Modul & Perangkat Pembelajaran</p>
+                                    </div>
+                                </div>
+                                <button onclick="openPdfModal('Artefak PPL 1', 'https://drive.google.com/file/d/1ZS114Z9QsSmLbwiykH5hKoGTQx4TnKz4/preview', 'https://drive.google.com/file/d/1ZS114Z9QsSmLbwiykH5hKoGTQx4TnKz4/view?usp=sharing')" 
+                                        class="px-3 py-1.5 rounded-lg bg-yellow-700/80 hover:bg-yellow-600 text-white text-xs font-medium transition-all shrink-0">
+                                    Buka Artefak
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-amber-900/40 flex items-center justify-between text-xs text-amber-200/60">
+                        <span><i class="fa-solid fa-shield-halved text-amber-400 mr-1"></i> Modul Praktik Lapangan</span>
+                        <a href="https://drive.google.com/file/d/1yr2Cxpxw6to3-WCY_ZU1dcRLH0P5zNk-/view?usp=sharing" target="_blank" class="text-amber-400 hover:underline">
+                            Buka di Drive <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: REFLEKSI SEMESTER 2 -->
+    <section id="refleksi-sem2" class="py-20 relative bg-[#120c08] border-t border-amber-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/20">
+                    Lanjutan Pembelajaran
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4">
+                    Refleksi Semester 2
+                </h2>
+                <p class="text-amber-200/70 text-sm sm:text-base mt-3">
+                    Pengalaman belajar, jurnal refleksi kognitif, serta artefak perkuliahan yang telah disusun selama perkuliahan Semester 2.
+                </p>
+            </div>
+
+            <!-- Grid Modules Semester 2 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+                <!-- 1. PEMBELAJARAN SOSIAL DAN EMOSIONAL -->
+                <div class="glass-card rounded-3xl p-6 sm:p-8 border border-amber-900/30 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-lg">
+                                01
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Pembelajaran Sosial dan Emosional</h3>
+                        </div>
+                        <p class="text-xs text-amber-200/70 mb-6 leading-relaxed">
+                            Refleksi penerapan lima kompetensi sosial-emosional (CASEL), kesadaran diri, pengelolaan emosi, empati, serta penciptaan iklim belajar yang aman, nyaman, dan inklusif.
+                        </p>
+
+                        <div class="space-y-3">
+                            <!-- Refleksi PSE -->
+                            <div class="p-3.5 rounded-xl bg-[#140d09] border border-amber-900/40 flex items-center justify-between hover:border-amber-500/40 transition-all">
+                                <div class="flex items-center space-x-3 overflow-hidden">
+                                    <i class="fa-solid fa-heart-pulse text-amber-400 text-lg"></i>
+                                    <div class="truncate">
+                                        <p class="text-xs font-semibold text-amber-100 truncate">Refleksi Pembelajaran Sosial & Emosional</p>
+                                        <p class="text-[10px] text-amber-300/60">Jurnal Refleksi Kompetensi KSE</p>
+                                    </div>
+                                </div>
+                                <button onclick="openPdfModal('Refleksi Pembelajaran Sosial dan Emosional', 'https://drive.google.com/file/d/1cXzs_Gv5Pgvm70P4GHP6DWpRmhU0MQ8_/preview', 'https://drive.google.com/file/d/1cXzs_Gv5Pgvm70P4GHP6DWpRmhU0MQ8_/view?usp=sharing')" 
+                                        class="px-3 py-1.5 rounded-lg bg-amber-700/80 hover:bg-amber-600 text-white text-xs font-medium transition-all shrink-0">
+                                    Buka Refleksi
+                                </button>
+                            </div>
+
+                            <!-- Artefak PSE -->
+                            <div class="p-3.5 rounded-xl bg-[#140d09] border border-amber-900/40 flex items-center justify-between hover:border-yellow-500/40 transition-all">
+                                <div class="flex items-center space-x-3 overflow-hidden">
+                                    <i class="fa-solid fa-folder-closed text-yellow-400 text-lg"></i>
+                                    <div class="truncate">
+                                        <p class="text-xs font-semibold text-amber-100 truncate">Artefak Pembelajaran Sosial & Emosional</p>
+                                        <p class="text-[10px] text-amber-300/60">Dokumen Modul Ajar & Teknik Mindfulness/KSE</p>
+                                    </div>
+                                </div>
+                                <button onclick="openPdfModal('Artefak Pembelajaran Sosial dan Emosional', 'https://drive.google.com/file/d/1Hv_xyjGNtC5uF40CE0fI1XFBOS6KIS8w/preview', 'https://drive.google.com/file/d/1Hv_xyjGNtC5uF40CE0fI1XFBOS6KIS8w/view?usp=sharing')" 
+                                        class="px-3 py-1.5 rounded-lg bg-yellow-700/80 hover:bg-yellow-600 text-white text-xs font-medium transition-all shrink-0">
+                                    Buka Artefak
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-amber-900/40 flex items-center justify-between text-xs text-amber-200/60">
+                        <span><i class="fa-solid fa-shield-halved text-amber-400 mr-1"></i> Modul Utama Sem 2</span>
+                        <a href="https://drive.google.com/file/d/1cXzs_Gv5Pgvm70P4GHP6DWpRmhU0MQ8_/view?usp=sharing" target="_blank" class="text-amber-400 hover:underline">
+                            Buka di Drive <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2. PENGEMBANGAN KEPROFESIAN BERKELANJUTAN -->
+                <div class="glass-card rounded-3xl p-6 sm:p-8 border border-amber-900/30 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-lg">
+                                02
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Pengembangan Keprofesian Berkelanjutan</h3>
+                        </div>
+                        <p class="text-xs text-amber-200/70 mb-6 leading-relaxed">
+                            Refleksi komitmen belajar sepanjang hayat (*long-life learning*), pemetaan rencana pengembangan diri, evaluasi mandiri, serta peningkatan kapasitas profesional pendidik.
+                        </p>
+
+                        <div class="space-y-3">
+                            <!-- Refleksi PKB -->
+                            <div class="p-3.5 rounded-xl bg-[#140d09] border border-amber-900/40 flex items-center justify-between hover:border-amber-500/40 transition-all">
+                                <div class="flex items-center space-x-3 overflow-hidden">
+                                    <i class="fa-solid fa-arrow-up-right-dots text-amber-400 text-lg"></i>
+                                    <div class="truncate">
+                                        <p class="text-xs font-semibold text-amber-100 truncate">Refleksi Pengembangan Keprofesian Berkelanjutan</p>
+                                        <p class="text-[10px] text-amber-300/60">Rencana & Evaluasi Pengembangan Diri</p>
+                                    </div>
+                                </div>
+                                <button onclick="openPdfModal('Refleksi Pengembangan Keprofesian Berkelanjutan', 'https://drive.google.com/file/d/137ddep7MAAf69FVl-H6PEygy0Wn6hl0L/preview', 'https://drive.google.com/file/d/137ddep7MAAf69FVl-H6PEygy0Wn6hl0L/view?usp=sharing')" 
+                                        class="px-3 py-1.5 rounded-lg bg-amber-700/80 hover:bg-amber-600 text-white text-xs font-medium transition-all shrink-0">
+                                    Buka Refleksi
+                                </button>
+                            </div>
+
+                            <!-- Artefak PKB -->
+                            <div class="p-3.5 rounded-xl bg-[#140d09] border border-amber-900/40 flex items-center justify-between hover:border-yellow-500/40 transition-all">
+                                <div class="flex items-center space-x-3 overflow-hidden">
+                                    <i class="fa-solid fa-id-card-clip text-yellow-400 text-lg"></i>
+                                    <div class="truncate">
+                                        <p class="text-xs font-semibold text-amber-100 truncate">Artefak Pengembangan Keprofesian Berkelanjutan</p>
+                                        <p class="text-[10px] text-amber-300/60">Portofolio Rencana Kinerja & Aksi Nyata PKB</p>
+                                    </div>
+                                </div>
+                                <button onclick="openPdfModal('Artefak Pengembangan Keprofesian Berkelanjutan', 'https://drive.google.com/file/d/101laqPUbcTRSqodyyQFlEvk9maxz7C9t/preview', 'https://drive.google.com/file/d/101laqPUbcTRSqodyyQFlEvk9maxz7C9t/view?usp=sharing')" 
+                                        class="px-3 py-1.5 rounded-lg bg-yellow-700/80 hover:bg-yellow-600 text-white text-xs font-medium transition-all shrink-0">
+                                    Buka Artefak
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-amber-900/40 flex items-center justify-between text-xs text-amber-200/60">
+                        <span><i class="fa-solid fa-shield-halved text-amber-400 mr-1"></i> Modul Utama Sem 2</span>
+                        <a href="https://drive.google.com/file/d/137ddep7MAAf69FVl-H6PEygy0Wn6hl0L/view?usp=sharing" target="_blank" class="text-amber-400 hover:underline">
+                            Buka di Drive <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 3. PROYEK KEPEMIMPINAN -->
+                <div class="glass-card rounded-3xl p-6 sm:p-8 border border-amber-900/30 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-lg">
+                                03
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Proyek Kepemimpinan</h3>
+                        </div>
+                        <p class="text-xs text-amber-200/70 mb-6 leading-relaxed">
+                            Refleksi perancangan dan pelaksanaan program pengabdian masyarakat/sekolah mitra (*service learning*), melatih kepemimpinan transformatif, kolaborasi, dan manajemen proyek edukatif.
+                        </p>
+
+                        <div class="space-y-3">
+                            <!-- Refleksi Proyek Kepemimpinan -->
+                            <div class="p-3.5 rounded-xl bg-[#140d09] border border-amber-900/40 flex items-center justify-between hover:border-amber-500/40 transition-all">
+                                <div class="flex items-center space-x-3 overflow-hidden">
+                                    <i class="fa-solid fa-users-gear text-amber-400 text-lg"></i>
+                                    <div class="truncate">
+                                        <p class="text-xs font-semibold text-amber-100 truncate">Refleksi Proyek Kepemimpinan</p>
+                                        <p class="text-[10px] text-amber-300/60">Evaluasi & Refleksi Program Kepemimpinan</p>
+                                    </div>
+                                </div>
+                                <button onclick="openPdfModal('Refleksi Proyek Kepemimpinan', 'https://drive.google.com/file/d/1kuJN-LQj3JWJrxfUYEma6-ByNh9YLiGM/preview', 'https://drive.google.com/file/d/1kuJN-LQj3JWJrxfUYEma6-ByNh9YLiGM/view?usp=sharing')" 
+                                        class="px-3 py-1.5 rounded-lg bg-amber-700/80 hover:bg-amber-600 text-white text-xs font-medium transition-all shrink-0">
+                                    Buka Refleksi
+                                </button>
+                            </div>
+
+                            <!-- Artefak Proyek Kepemimpinan -->
+                            <div class="p-3.5 rounded-xl bg-[#140d09] border border-amber-900/40 flex items-center justify-between hover:border-yellow-500/40 transition-all">
+                                <div class="flex items-center space-x-3 overflow-hidden">
+                                    <i class="fa-solid fa-diagram-project text-yellow-400 text-lg"></i>
+                                    <div class="truncate">
+                                        <p class="text-xs font-semibold text-amber-100 truncate">Artefak Proyek Kepemimpinan</p>
+                                        <p class="text-[10px] text-amber-300/60">Laporan Akhir & Dokumentasi Proyek</p>
+                                    </div>
+                                </div>
+                                <button onclick="openPdfModal('Artefak Proyek Kepemimpinan', 'https://drive.google.com/file/d/1DXDfh9cEmOKLEwOW9PPz2Ld6skujeB5W/preview', 'https://drive.google.com/file/d/1DXDfh9cEmOKLEwOW9PPz2Ld6skujeB5W/view?usp=sharing')" 
+                                        class="px-3 py-1.5 rounded-lg bg-yellow-700/80 hover:bg-yellow-600 text-white text-xs font-medium transition-all shrink-0">
+                                    Buka Artefak
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-amber-900/40 flex items-center justify-between text-xs text-amber-200/60">
+                        <span><i class="fa-solid fa-shield-halved text-amber-400 mr-1"></i> Modul Utama Sem 2</span>
+                        <a href="https://drive.google.com/file/d/1kuJN-LQj3JWJrxfUYEma6-ByNh9YLiGM/view?usp=sharing" target="_blank" class="text-amber-400 hover:underline">
+                            Buka di Drive <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 4. PEMBELAJARAN MENDALAM DAN ASESMEN LANJUTAN -->
+                <div class="glass-card rounded-3xl p-6 sm:p-8 border border-amber-900/30 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-lg">
+                                04
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Pembelajaran Mendalam dan Asesmen Lanjutan</h3>
+                        </div>
+                        <p class="text-xs text-amber-200/70 mb-6 leading-relaxed">
+                            Refleksi pendalaman strategi *deep learning*, evaluasi asesmen otentik tingkat lanjut, analisis hasil belajar murid, dan penyempurnaan desain instruksional berulang.
+                        </p>
+
+                        <div class="space-y-3">
+                            <!-- Refleksi PMA Lanjutan -->
+                            <div class="p-3.5 rounded-xl bg-[#140d09] border border-amber-900/40 flex items-center justify-between hover:border-amber-500/40 transition-all">
+                                <div class="flex items-center space-x-3 overflow-hidden">
+                                    <i class="fa-solid fa-sliders text-amber-400 text-lg"></i>
+                                    <div class="truncate">
+                                        <p class="text-xs font-semibold text-amber-100 truncate">Refleksi PMA Lanjutan</p>
+                                        <p class="text-[10px] text-amber-300/60">Jurnal Refleksi Asesmen & Deep Learning Lanjutan</p>
+                                    </div>
+                                </div>
+                                <button onclick="openPdfModal('Refleksi Pembelajaran Mendalam dan Asesmen Lanjutan', 'https://drive.google.com/file/d/1tr8VeVoOEyBLxbMosuwLBMkH8kby6_zn/preview', 'https://drive.google.com/file/d/1tr8VeVoOEyBLxbMosuwLBMkH8kby6_zn/view?usp=sharing')" 
+                                        class="px-3 py-1.5 rounded-lg bg-amber-700/80 hover:bg-amber-600 text-white text-xs font-medium transition-all shrink-0">
+                                    Buka Refleksi
+                                </button>
+                            </div>
+
+                            <!-- Artefak PMA Lanjutan -->
+                            <div class="p-3.5 rounded-xl bg-[#140d09] border border-amber-900/40 flex items-center justify-between hover:border-yellow-500/40 transition-all">
+                                <div class="flex items-center space-x-3 overflow-hidden">
+                                    <i class="fa-solid fa-list-check text-yellow-400 text-lg"></i>
+                                    <div class="truncate">
+                                        <p class="text-xs font-semibold text-amber-100 truncate">Artefak PMA Lanjutan</p>
+                                        <p class="text-[10px] text-amber-300/60">Perangkat Asesmen & Modul Pembelajaran Lanjutan</p>
+                                    </div>
+                                </div>
+                                <button onclick="openPdfModal('Artefak Pembelajaran Mendalam dan Asesmen Lanjutan', 'https://drive.google.com/file/d/19Vx03tgOcFUjf4Qg1GRLxFXhugYKKWDJ/preview', 'https://drive.google.com/file/d/19Vx03tgOcFUjf4Qg1GRLxFXhugYKKWDJ/view?usp=sharing')" 
+                                        class="px-3 py-1.5 rounded-lg bg-yellow-700/80 hover:bg-yellow-600 text-white text-xs font-medium transition-all shrink-0">
+                                    Buka Artefak
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-amber-900/40 flex items-center justify-between text-xs text-amber-200/60">
+                        <span><i class="fa-solid fa-shield-halved text-amber-400 mr-1"></i> Modul Utama Sem 2</span>
+                        <a href="https://drive.google.com/file/d/1tr8VeVoOEyBLxbMosuwLBMkH8kby6_zn/view?usp=sharing" target="_blank" class="text-amber-400 hover:underline">
+                            Buka di Drive <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 4: REFLEKSI PPG (KESELURUHAN) -->
+    <section id="refleksi-ppg" class="py-20 relative bg-[#18100b] border-t border-amber-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/20">
+                    Sintesis Pembelajaran
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4">
+                    Refleksi Keseluruhan PPG
+                </h2>
+                <p class="text-amber-200/70 text-sm sm:text-base mt-3">
+                    Sintesis filosofis, pedagogis, dan profesionalisme guru berdasarkan Model Refleksi STaR & Gibbs.
+                </p>
+            </div>
+
+            <!-- Grid 3 Pillars Reflection -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Pillar 1 -->
+                <div class="glass-card rounded-3xl p-6 border border-amber-900/30 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl font-bold mb-6">
+                            <i class="fa-solid fa-compass"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-3">Filosofi Pendidikan Indonesia</h3>
+                        <p class="text-xs text-amber-100/80 leading-relaxed mb-4">
+                            Perubahan paradigma mengajar dari *Teacher-Centered* menjadi *Student-Centered* sesuai pemikiran Ki Hajar Dewantara: Menuntun kodrat alam & kodrat zaman peserta didik.
+                        </p>
+                        <ul class="space-y-2 text-xs text-amber-200/70">
+                            <li class="flex items-center space-x-2">
+                                <i class="fa-solid fa-circle-check text-amber-400 text-[10px]"></i>
+                                <span>Sistem Among (Ing Ngarso Sung Tuladha)</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <i class="fa-solid fa-circle-check text-amber-400 text-[10px]"></i>
+                                <span>Pendidikan Berorientasi Budi Pekerti</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-amber-900/40 text-[11px] text-amber-400 font-medium">
+                        Model Refleksi: Gibbs Cycle
+                    </div>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="glass-card rounded-3xl p-6 border border-amber-900/30 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-yellow-500/20 text-yellow-400 flex items-center justify-center text-xl font-bold mb-6">
+                            <i class="fa-solid fa-diagram-project"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-3">Desain Pembelajaran Inovatif</h3>
+                        <p class="text-xs text-amber-100/80 leading-relaxed mb-4">
+                            Kemampuan merancang modul ajar terintegrasi teknologi (TPACK), pemetaan kebutuhan belajar, serta penyusunan asesmen otentik.
+                        </p>
+                        <ul class="space-y-2 text-xs text-amber-200/70">
+                            <li class="flex items-center space-x-2">
+                                <i class="fa-solid fa-circle-check text-yellow-400 text-[10px]"></i>
+                                <span>Understanding by Design (UbD)</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <i class="fa-solid fa-circle-check text-yellow-400 text-[10px]"></i>
+                                <span>Problem Based Learning & CRT</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-amber-900/40 text-[11px] text-yellow-400 font-medium">
+                        Model Refleksi: STaR Method
+                    </div>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="glass-card rounded-3xl p-6 border border-amber-900/30 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-amber-600/20 text-amber-300 flex items-center justify-center text-xl font-bold mb-6">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-3">Komitmen Guru Profesional</h3>
+                        <p class="text-xs text-amber-100/80 leading-relaxed mb-4">
+                            Sikap pembelajar sepanjang hayat (*long-life learner*), siap melakukan refleksi berkelanjutan untuk meningkatkan mutu pembelajaran.
+                        </p>
+                        <ul class="space-y-2 text-xs text-amber-200/70">
+                            <li class="flex items-center space-x-2">
+                                <i class="fa-solid fa-circle-check text-amber-300 text-[10px]"></i>
+                                <span>Kode Etik & Integritas Pendidik</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <i class="fa-solid fa-circle-check text-amber-300 text-[10px]"></i>
+                                <span>Kolaborasi Sejawat & Komunitas Belajar</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-amber-900/40 text-[11px] text-amber-300 font-medium">
+                        Model Refleksi: 4F (Facts, Feelings, Findings, Future)
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 5: HASIL KARYA -->
+    <section id="hasil-karya" class="py-20 relative bg-[#120c08] border-t border-amber-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/20">
+                    Galeri Pembelajaran
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4">
+                    Hasil Karya & Media Pembelajaran
+                </h2>
+                <p class="text-amber-200/70 text-sm sm:text-base mt-3">
+                    Showcase produk inovatif yang dikembangkan selama perkuliahan dan praktik mengajar PPL di UNY.
+                </p>
+            </div>
+
+            <!-- Works Showcase Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Work Item 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-amber-900/30 group hover:-translate-y-1 transition-all">
+                    <div class="h-48 bg-[#1a110a] relative overflow-hidden flex items-center justify-center">
+                        <i class="fa-solid fa-book-bookmark text-6xl text-amber-500/30 group-hover:scale-110 transition-transform"></i>
+                        <span class="absolute top-3 left-3 bg-amber-700/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-md">Modul Ajar</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="text-base font-bold text-white group-hover:text-amber-400 transition-colors">Modul Ajar Berbasis UbD</h4>
+                        <p class="text-xs text-amber-200/70 mt-2 leading-relaxed">
+                            Rancangan Pembelajaran Terstruktur dengan pendekatan Understanding by Design dan Asesmen Formatif Kontinu.
+                        </p>
+                        <div class="mt-4 pt-3 border-t border-amber-900/40 flex items-center justify-between">
+                            <span class="text-[11px] text-amber-300/50">Format: PDF / Digital</span>
+                            <button onclick="openPdfModal('Modul Ajar Berbasis UbD', 'https://drive.google.com/file/d/1c_HIXDSKlTvl_BlukTzH5ZDdGVuh5S7U/preview')" class="text-xs text-amber-400 hover:text-amber-300 font-semibold">
+                                Lihat Karya <i class="fa-solid fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work Item 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-amber-900/30 group hover:-translate-y-1 transition-all">
+                    <div class="h-48 bg-[#1a110a] relative overflow-hidden flex items-center justify-center">
+                        <i class="fa-solid fa-laptop-code text-6xl text-yellow-500/30 group-hover:scale-110 transition-transform"></i>
+                        <span class="absolute top-3 left-3 bg-yellow-700/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-md">Media Interaktif</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="text-base font-bold text-white group-hover:text-yellow-400 transition-colors">Media Pembelajaran Digital</h4>
+                        <p class="text-xs text-amber-200/70 mt-2 leading-relaxed">
+                            Bahan ajar multimedia interaktif yang dirancang untuk meningkatkan partisipasi aktif siswa dalam kelas.
+                        </p>
+                        <div class="mt-4 pt-3 border-t border-amber-900/40 flex items-center justify-between">
+                            <span class="text-[11px] text-amber-300/50">Format: Interactive Slides</span>
+                            <button onclick="openPdfModal('Media Pembelajaran Digital', 'https://drive.google.com/file/d/1xniLYxnR7fs93NfD1mJfvztsscbBLlZg/preview')" class="text-xs text-yellow-400 hover:text-yellow-300 font-semibold">
+                                Lihat Karya <i class="fa-solid fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work Item 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-amber-900/30 group hover:-translate-y-1 transition-all">
+                    <div class="h-48 bg-[#1a110a] relative overflow-hidden flex items-center justify-center">
+                        <i class="fa-solid fa-video text-6xl text-amber-600/30 group-hover:scale-110 transition-transform"></i>
+                        <span class="absolute top-3 left-3 bg-amber-800/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-md">Video Pembelajaran</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Dokumentasi Praktik Mengajar PPL</h4>
+                        <p class="text-xs text-amber-200/70 mt-2 leading-relaxed">
+                            Video rekaman pelaksanaan siklus pembelajaran mengajar terbimbing dan mandiri di sekolah mitra.
+                        </p>
+                        <div class="mt-4 pt-3 border-t border-amber-900/40 flex items-center justify-between">
+                            <span class="text-[11px] text-amber-300/50">Format: Video / MP4</span>
+                            <button onclick="openPdfModal('Dokumentasi Video PPL', 'https://drive.google.com/file/d/1vyiSgRauiEuCBtZcs5vEgbFq56GRJMhR/preview')" class="text-xs text-amber-300 hover:text-amber-200 font-semibold">
+                                Lihat Karya <i class="fa-solid fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 6: KESIMPULAN -->
+    <section id="kesimpulan" class="py-20 relative bg-[#18100b] border-t border-amber-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="glass-card rounded-3xl p-8 sm:p-12 border border-amber-900/40 bg-gradient-to-br from-[#1c130d] via-[#140d09] to-[#2c1b10] relative overflow-hidden">
+                
+                <div class="max-w-3xl space-y-6">
+                    <span class="text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/20">
+                        Penutup & Kesimpulan
+                    </span>
+
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+                        Komitmen Transformasi Menjadi Guru Profesional Abad 21
+                    </h2>
+
+                    <p class="text-amber-100/90 text-sm sm:text-base leading-relaxed">
+                        Program Pendidikan Profesi Guru (PPG) di Universitas Negeri Yogyakarta telah membekali saya dengan pemahaman filosofis yang kokoh, penguasaan metodologi pembelajaran berorientasi peserta didik, serta kemampuan adaptasi teknologi secara integratif.
+                    </p>
+
+                    <div class="space-y-3 pt-2">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-xs shrink-0 mt-0.5">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <p class="text-xs sm:text-sm text-amber-200/90">
+                                <strong>Refleksi Berkelanjutan:</strong> Menjadikan evaluasi diri sebagai kebiasaan profesional harian untuk perbaikan mutu pembelajaran.
+                            </p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-yellow-500/20 text-yellow-400 flex items-center justify-center text-xs shrink-0 mt-0.5">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <p class="text-xs sm:text-sm text-amber-200/90">
+                                <strong>Berorientasi Pada Siswa:</strong> Menerapkan Pembelajaran Berdiferensiasi dan pendekatan TaRL agar setiap peserta didik berkembang sesuai potensinya.
+                            </p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-amber-600/20 text-amber-300 flex items-center justify-center text-xs shrink-0 mt-0.5">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <p class="text-xs sm:text-sm text-amber-200/90">
+                                <strong>Inovasi Digital:</strong> Terus mengintegrasikan teknologi tepat guna dalam memfasilitasi lingkungan belajar yang interaktif dan menyenangkan.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 flex flex-wrap gap-4 items-center">
+                        <a href="https://drive.google.com/file/d/1jbAknMXWhTBEBdZkE7sywO4_7zXoTDgN/view?usp=sharing" target="_blank" class="px-6 py-3 rounded-xl bg-gradient-to-r from-amber-600 via-amber-700 to-yellow-600 text-white font-semibold text-xs shadow-lg shadow-amber-700/30 hover:scale-105 transition-all">
+                            <i class="fa-solid fa-download mr-2"></i> Unduh Ringkasan Portofolio
+                        </a>
+                        <span class="text-xs text-amber-300/60">Laskar Rindang Gulo &bull; Mahasiswa PPG UNY</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-8 bg-[#0e0805] border-t border-amber-900/30 text-center text-xs text-amber-200/50">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>&copy; 2026 Laskar Rindang Gulo. Portofolio Seminar PPG Universitas Negeri Yogyakarta.</p>
+            <div class="flex items-center space-x-4">
+                <a href="#beranda" class="hover:text-amber-400 transition-colors">Beranda</a>
+                <a href="#refleksi-sem1" class="hover:text-amber-400 transition-colors">Semester 1</a>
+                <a href="#refleksi-sem2" class="hover:text-amber-400 transition-colors">Semester 2</a>
+                <a href="#refleksi-ppg" class="hover:text-amber-400 transition-colors">Refleksi PPG</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- PDF / ARTEFAK MODAL VIEWER -->
+    <div id="pdfModal" class="fixed inset-0 z-50 hidden bg-[#0e0805]/95 backdrop-blur-md flex items-center justify-center p-4 sm:p-6">
+        <div class="bg-[#18100b] w-full max-w-5xl h-[85vh] rounded-3xl border border-amber-900/40 flex flex-col overflow-hidden shadow-2xl">
+            
+            <!-- Modal Header -->
+            <div class="px-6 py-4 bg-[#120c08] border-b border-amber-900/40 flex items-center justify-between">
+                <div class="flex items-center space-x-3 overflow-hidden">
+                    <i class="fa-solid fa-file-pdf text-amber-400 text-xl shrink-0"></i>
+                    <h3 id="modalTitle" class="text-sm sm:text-base font-bold text-white truncate">Dokumen Pratinjau</h3>
+                </div>
+                <div class="flex items-center space-x-2 shrink-0">
+                    <a id="modalExternalLink" href="#" target="_blank" class="px-3 py-1.5 rounded-lg bg-[#24170f] hover:bg-[#332115] text-amber-200 text-xs font-medium transition-all flex items-center space-x-1">
+                        <span>Buka Tab Baru</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                    <button onclick="closePdfModal()" class="w-8 h-8 rounded-lg bg-[#24170f] hover:bg-red-500/20 text-amber-200 hover:text-red-400 flex items-center justify-center transition-all">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modal Body (Iframe) -->
+            <div class="flex-1 bg-[#0e0805] relative">
+                <iframe id="modalIframe" src="" class="w-full h-full border-none" title="PDF Document Preview"></iframe>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="px-6 py-3 bg-[#120c08] border-t border-amber-900/40 flex justify-between items-center text-xs text-amber-300/60">
+                <span><i class="fa-solid fa-shield-halved text-amber-400 mr-1"></i> Universitas Negeri Yogyakarta</span>
+                <button onclick="closePdfModal()" class="px-4 py-1.5 rounded-lg bg-[#24170f] hover:bg-[#332115] text-amber-100">
+                    Tutup
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Semester 2 Tab Switcher
+        function switchSem2Tab(tabId) {
+            const tabs = ['tab-ppl2', 'tab-diferensiasi', 'tab-proyek'];
+            const buttons = ['btn-tab-ppl2', 'btn-tab-diferensiasi', 'btn-tab-proyek'];
+
+            tabs.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    if (id === tabId) {
+                        el.classList.remove('hidden');
+                    } else {
+                        el.classList.add('hidden');
+                    }
+                }
+            });
+
+            buttons.forEach(btnId => {
+                const btn = document.getElementById(btnId);
+                if (btn) {
+                    if (btnId === 'btn-' + tabId) {
+                        btn.classList.add('active');
+                        btn.classList.remove('bg-slate-900', 'text-slate-400');
+                    } else {
+                        btn.classList.remove('active');
+                        btn.classList.add('bg-slate-900', 'text-slate-400');
+                    }
+                }
+            });
+        }
+
+        // PDF Preview Modal Control
+        const pdfModal = document.getElementById('pdfModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalIframe = document.getElementById('modalIframe');
+        const modalExternalLink = document.getElementById('modalExternalLink');
+
+        function openPdfModal(title, embedUrl, externalUrl) {
+            modalTitle.textContent = title;
+            modalIframe.src = embedUrl;
+            modalExternalLink.href = externalUrl || embedUrl.replace('/preview', '/view?usp=sharing');
+            pdfModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePdfModal() {
+            pdfModal.classList.add('hidden');
+            modalIframe.src = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close Modal when pressing ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !pdfModal.classList.contains('hidden')) {
+                closePdfModal();
+            }
+        });
+    </script>
+</body>
+</html>
