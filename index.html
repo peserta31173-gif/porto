@@ -1397,4 +1397,148 @@
             </div>
 
             <!-- PPT Slide Structure Summary -->
-<!-- ... existing code -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="p-4 rounded-2xl bg-[#28030f] border border-rose-900/70">
+                    <p class="text-xs font-bold text-rose-300">1. Latar Belakang</p>
+                    <p class="text-[11px] text-rose-200/80 mt-1">Kejenuhan post-test konvensional & penurunan fokus murid akhir jam pelajaran.</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-[#28030f] border border-rose-900/70">
+                    <p class="text-xs font-bold text-rose-300">2. Tahapan Pelaksanaan</p>
+                    <p class="text-[11px] text-rose-200/80 mt-1">Persiapan, pelaksanaan kuis 2D, angket tanggapan, evaluasi & perbaikan.</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-[#28030f] border border-rose-900/70">
+                    <p class="text-xs font-bold text-rose-300">3. Hasil & Dampak</p>
+                    <p class="text-[11px] text-rose-200/80 mt-1">Skor kepuasan 3,54/4,00 dengan 98,9% tanggapan positif murid.</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-[#28030f] border border-rose-900/70">
+                    <p class="text-xs font-bold text-rose-300">4. Rencana Tindak Lanjut</p>
+                    <p class="text-[11px] text-rose-200/80 mt-1">Pengembangan variasi soal, materi Informatika lain & diseminasi sejawat.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-8 bg-[#1a030b] border-t border-rose-900/60 text-center text-xs text-rose-200/70">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>&copy; 2026 Laskar Rindang Gulo. Portofolio Seminar PPG Universitas Negeri Yogyakarta.</p>
+            <div class="flex items-center space-x-4">
+                <a href="#beranda" class="hover:text-rose-300 transition-colors">Beranda</a>
+                <a href="#identifikasi-diri" class="hover:text-rose-300 transition-colors">Identifikasi Diri</a>
+                <a href="#refleksi-sem1" class="hover:text-rose-300 transition-colors">Semester 1</a>
+                <a href="#refleksi-sem2" class="hover:text-rose-300 transition-colors">Semester 2</a>
+                <a href="#refleksi-ppg" class="hover:text-rose-300 transition-colors">Refleksi PPG</a>
+                <a href="#hasil-karya" class="hover:text-rose-300 transition-colors">Hasil Karya</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PDF / ARTEFAK MODAL VIEWER -->
+    <div id="pdfModal" class="fixed inset-0 z-50 hidden bg-[#1a030b]/95 backdrop-blur-md flex items-center justify-center p-3 sm:p-6">
+        <div class="bg-[#28030f] w-full max-w-5xl h-[90vh] rounded-3xl border border-rose-500/50 flex flex-col overflow-hidden shadow-2xl">
+            
+            <!-- Modal Header -->
+            <div class="px-5 py-4 bg-[#1a030b] border-b border-rose-900/60 flex items-center justify-between">
+                <div class="flex items-center space-x-3 overflow-hidden">
+                    <i class="fa-solid fa-file-pdf text-rose-300 text-xl shrink-0"></i>
+                    <h3 id="modalTitle" class="text-sm sm:text-base font-bold text-white truncate">Dokumen Pratinjau</h3>
+                </div>
+                <div class="flex items-center space-x-2 shrink-0">
+                    <a id="modalExternalLink" href="#" target="_blank" class="px-3.5 py-1.5 rounded-lg bg-rose-700 hover:bg-rose-600 text-white text-xs font-semibold transition-all flex items-center space-x-1">
+                        <span>Buka Tab Baru</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                    <button onclick="closePdfModal()" class="w-8 h-8 rounded-lg bg-rose-900/60 hover:bg-rose-600 text-rose-200 hover:text-white flex items-center justify-center transition-all">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modal Body (Iframe) -->
+            <div class="flex-1 bg-[#1a030b] relative">
+                <iframe id="modalIframe" src="" class="w-full h-full border-none" title="Dokumen Preview"></iframe>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="px-6 py-3 bg-[#1a030b] border-t border-rose-900/60 flex justify-between items-center text-xs text-rose-200/70">
+                <span><i class="fa-solid fa-shield-halved text-rose-300 mr-1"></i> Universitas Negeri Yogyakarta</span>
+                <button onclick="closePdfModal()" class="px-4 py-1.5 rounded-lg bg-rose-900/50 hover:bg-rose-800 text-rose-100">
+                    Tutup
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+        // PDF / Document Modal Control
+        const pdfModal = document.getElementById('pdfModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalIframe = document.getElementById('modalIframe');
+        const modalExternalLink = document.getElementById('modalExternalLink');
+
+        function formatDriveUrl(url, mode) {
+            if (!url) return '';
+            // Convert view/edit links to preview embeddable format
+            if (mode === 'embed') {
+                if (url.includes('docs.google.com/document')) {
+                    return url.replace(/\/edit.*$/, '/preview');
+                }
+                if (url.includes('docs.google.com/presentation')) {
+                    return url.replace(/\/edit.*$/, '/embed');
+                }
+                if (url.includes('drive.google.com/file')) {
+                    return url.replace(/\/view.*$/, '/preview').replace(/\/edit.*$/, '/preview');
+                }
+            }
+            return url;
+        }
+
+        function openPdfModal(title, embedUrl, externalUrl) {
+            if (!pdfModal || !modalTitle || !modalIframe || !modalExternalLink) return;
+            
+            const formattedEmbed = formatDriveUrl(embedUrl, 'embed');
+            const targetExternal = externalUrl || embedUrl;
+
+            modalTitle.textContent = title || 'Pratinjau Dokumen';
+            modalIframe.src = formattedEmbed;
+            modalExternalLink.href = targetExternal;
+            
+            pdfModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePdfModal() {
+            if (!pdfModal || !modalIframe) return;
+            pdfModal.classList.add('hidden');
+            modalIframe.src = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close Modal on ESC Key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && pdfModal && !pdfModal.classList.contains('hidden')) {
+                closePdfModal();
+            }
+        });
+    </script>
+</body>
+</html>
